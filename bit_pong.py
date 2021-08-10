@@ -49,6 +49,12 @@ def hit():
     
 # Game setup
 np = neopixel.NeoPixel(pin0, 64) #changed from 32 to 64 to get full 8x8 array
+
+#V2 microbit has configurable pin drives, which are setup differently to the V1 by default.
+#The NRF processor GPIO pin2 is microbit pin0  where the ZIP LEDs are connected.
+#To set it to high drive mode we write directly to the configuration register with this obscure looking incantation:
+machine.mem32[0x50000708]= 0x703
+
 col_combo = [[0, 0, 0], [20, 0, 0], [0, 20, 0], [0, 0, 20], [20, 20, 20]]
 player_1_x, player_1_y = 0, 1
 player_2_x, player_2_y = 7, 6
