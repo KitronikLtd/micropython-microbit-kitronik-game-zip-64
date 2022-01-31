@@ -1,5 +1,6 @@
 from microbit import *
 import neopixel
+import machine
 from random import randint
 
 # Enable NeoPixels to use x & y values
